@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>費用管理</title>
+  <link rel="stylesheet" href="cost.css">
+</head>
+<body>
+
+<header>費用管理</header>
+
+<div class="container">
+
+  <!-- 入力カード -->
+  <div class="input-card">
+    <div class="input-row">
+      <div class="input-group date-group">
+        <label>日付</label>
+        <input type="date" id="inputDate">
+      </div>
+      <div class="input-group name-group">
+        <label>名称</label>
+        <input type="text" id="inputName" placeholder="例：交通費">
+      </div>
+      <div class="input-group amount-group">
+        <label>金額（円）</label>
+        <input type="number" id="inputAmount" placeholder="0" min="0">
+      </div>
+      <button class="btn btn-save" onclick="saveItem()">保存</button>
+    </div>
+  </div>
+
+  <!-- リストカード -->
+  <div class="list-card">
+    <div class="list-header">
+      <h2>保存リスト</h2>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <span class="count-badge" id="countBadge">0 件</span>
+        <button class="btn btn-export" onclick="exportCSV()">Excelで保存</button>
+      </div>
+    </div>
+
+    <div id="tableWrap">
+      <p class="empty-msg">まだデータがありません</p>
+    </div>
+
+    <div class="total-row" id="totalRow" style="display:none;">
+      <span>合計</span>
+      <span class="amount" id="totalAmount">¥0</span>
+    </div>
+  </div>
+
+</div>
+
+<script src="cost.js"></script>
+
+</body>
+</html>
