@@ -88,10 +88,12 @@ const total  = sorted.reduce((s, i) => s + i.amount, 0);
 
 const BOM = '﻿';
 const header = '日付,名称,金額\r\n';
-const dataRows = sorted.map(i =>
-    `${i.date},${csvEsc(i.name)},${i.amount}`
-).join('\r\n');
+const dataRows = sorted.map(i => {
+    console.log(i.date)
+    return `${i.date},${csvEsc(i.name)},${i.amount}`
+}).join('\r\n');
 const totalLine = `\r\n合計,,${total}`;
+
 
 const csv = BOM + header + dataRows + totalLine;
 const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -132,3 +134,4 @@ if (e.key === 'Enter' && (e.target.id === 'inputName' || e.target.id === 'inputA
     saveItem();
 }
 });
+
